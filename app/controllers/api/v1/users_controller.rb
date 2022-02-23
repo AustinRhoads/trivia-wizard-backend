@@ -5,6 +5,8 @@ class Api::V1::UsersController < ApplicationController
 
         if @users 
 
+            
+
             render json: {
                 status: 200,
                 users: @users
@@ -25,9 +27,12 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(new_user_params)
         #binding.pry
         if @user.save 
+
+            
+
             render json: {
                 status: 200,
-                user: @user,
+                user: UserSerializer.new(@user),
                 created_success: true,
             }
 
@@ -45,6 +50,22 @@ class Api::V1::UsersController < ApplicationController
     def show
 
        @user = User.find(params[:id]) 
+
+       if @user
+
+            render json:{
+             status: 200,
+             user: UserSerializer.new(@user)
+            } 
+
+        else
+            
+            render json:{
+                status: 500,
+                errors: ['user not found']
+               } 
+
+        end
 
     end
 
