@@ -6,7 +6,7 @@ class Api::V1::GamesController < ApplicationController
 
     def create
         @game = Game.new(game_params)
-        binding.pry
+        #binding.pry
 
         if @game.save
             render json: {
