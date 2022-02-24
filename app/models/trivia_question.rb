@@ -1,0 +1,2 @@
+class TriviaQuestion < ApplicationRecord
+end
