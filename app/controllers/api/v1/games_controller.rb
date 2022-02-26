@@ -5,8 +5,11 @@ class Api::V1::GamesController < ApplicationController
     end
 
     def create
+        
+        
         @game = Game.new(game_params)
         #binding.pry
+
 
         if @game.save
             render json: {
@@ -23,7 +26,7 @@ class Api::V1::GamesController < ApplicationController
 
 
     def game_params
-        params.require(:game).permit(:rounds, :questions_per_round, :players, :join_code)
+        params.require(:game).permit(:number_of_rounds, :questions_per_round, :players, :join_code, :quiz_rounds)
     end
 
 end

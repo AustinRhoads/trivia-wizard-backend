@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_23_174656) do
+ActiveRecord::Schema.define(version: 2022_02_25_232506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.integer "rounds"
+    t.integer "number_of_rounds"
     t.integer "current_round"
     t.integer "questions_per_round"
     t.string "join_code"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2022_02_23_174656) do
     t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "game_id", null: false
+    t.index ["game_id"], name: "index_quizzes_on_game_id"
   end
 
   create_table "trivia_questions", force: :cascade do |t|
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(version: 2022_02_23_174656) do
     t.string "question_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "quiz_id", null: false
+    t.index ["quiz_id"], name: "index_trivia_questions_on_quiz_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +55,6 @@ ActiveRecord::Schema.define(version: 2022_02_23_174656) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "quizzes", "games"
+  add_foreign_key "trivia_questions", "quizzes"
 end
