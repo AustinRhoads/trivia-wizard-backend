@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_02_25_232506) do
 
   create_table "quizzes", force: :cascade do |t|
     t.integer "current_question"
+    t.integer "round_number"
     t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
