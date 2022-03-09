@@ -35,7 +35,7 @@ class Api::V1::GamesController < ApplicationController
         else
                 render json: {
                     status: 400,
-                    error: ["game not found"]
+                    error: ["Sorry, game not found. Please check your code to make sure it is correct."]
                 }
         end
     end

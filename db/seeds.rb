@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 a = User.create({:username => "austin", :password => "test", :password_confirmation => "test"})
+b = User.create({:username => "test", :password => "test", :password_confirmation => "test"})
