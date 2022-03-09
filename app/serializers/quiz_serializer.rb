@@ -1,5 +1,10 @@
 class QuizSerializer < ActiveModel::Serializer
-    attributes :id, :current_question, :round_number, :completed, :game_id, :trivia_questions
+    attributes :id, :current_question, :round_number, :completed, :game_id, :trivia_questions, :status
+
+    def status
+      200
+    end
+    
    def trivia_questions
      custum_trivia_questions = []
      object.trivia_questions.each do |tq|

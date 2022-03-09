@@ -28,15 +28,6 @@ class Api::V1::GamesController < ApplicationController
 
         game = Game.find_by({:join_code => params[:code]})
 
-        #render json: {
-        #    status: 200,
-        #    message: "you have the endpoint",
-        #    code: params[:code],
-        #    game: game,
-        #    # root: false
-        #    #game: @game,
-        #    #quizzes: game.quizzes,
-        #}
 
         if game
         

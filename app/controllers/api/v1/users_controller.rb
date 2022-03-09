@@ -54,11 +54,13 @@ class Api::V1::UsersController < ApplicationController
 
        if @user
 
-            render json:{
-             status: 200,
-             #user: UserSerializer.new(@user)
-             user: @user
-            } 
+            #render json:{
+            # status: 200,
+            # #user: UserSerializer.new(@user)
+            # user: @user
+            #} 
+
+            render json: @user
 
         else
             
