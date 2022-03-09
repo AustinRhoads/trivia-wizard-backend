@@ -27,9 +27,34 @@ class Api::V1::QuizzesController < ApplicationController
 
     end
 
-    def quiz_params
-        params.permit(:game_id, :round_number, :quiz => [:category, :question_type, :difficulty, :question, :correct_answer, :incorrect_answers => []] )
+
+    def show
+        quiz = Quiz.find(quiz_params[:id])
+        #binding.pry
+        render json: {
+            #quiz: QuizSerializer.new(quiz),
+            quiz: quiz,
+           # questions: quiz.trivia_questions,
+            status: 200,
+        }
     end
+
+
+    def quiz_params
+        params.permit(:id, :game_id, :round_number, :quiz => [:category, :question_type, :difficulty, :question, :correct_answer, :incorrect_answers => []] )
+    end
+
+#    def join_game
+#
+#        game = Game.find_by({:join_code => params[:code]})
+#
+#        render json: {
+#            status: 200,
+#            message: "you have the endpoint",
+#            code: params[:code],
+#            game: game,
+#        }
+#    end
 
 
 

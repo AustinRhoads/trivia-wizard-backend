@@ -32,7 +32,8 @@ class Api::V1::UsersController < ApplicationController
 
             render json: {
                 status: 200,
-                user: UserSerializer.new(@user),
+                #user: UserSerializer.new(@user),
+                user: @user,
                 created_success: true,
             }
 
@@ -55,7 +56,8 @@ class Api::V1::UsersController < ApplicationController
 
             render json:{
              status: 200,
-             user: UserSerializer.new(@user)
+             #user: UserSerializer.new(@user)
+             user: @user
             } 
 
         else

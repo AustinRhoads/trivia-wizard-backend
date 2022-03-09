@@ -26,7 +26,8 @@ gem 'dotenv'
 gem 'dotenv-rails'
 gem 'rack-cors'
 gem 'devise'
-gem 'fast_jsonapi'
+#gem 'fast_jsonapi'
+gem 'active_model_serializers'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/login',    to: 'sessions#create'
   post '/logout',   to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#is_logged_in?'
+  #get '/api/v1/join_game/:code', to: '/api/v1/quizzes#join_game'
  
   
 
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
       resources :users
       resources :games
       resources :quizzes
-    
+      #get '/join_game/:code', to: 'quizzes#join_game'
+      get '/join_game/:code', to: 'games#join_game'
     end
   end
 
